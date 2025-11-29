@@ -1,0 +1,305 @@
+{
+    "window.title": "${dirty}${activeEditorMedium}",
+
+    //! MD & TXT
+    // #region MD & TXT
+    "highlight.regexes": { // regex formatting like -, +, *
+        // KEYWORDS (Purple): matches exact keywords or 'e:'
+        "\\b(core prompt|core task|example|examples|ie|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [{ "color": "#C792EA"}]
+        },
+        // -: matches dash bullets with headers ending in : or .
+        "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:\\S+\\s+){0,4}\\S+?[.:])": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                { "color": "#82AAFF", "fontWeight": "bold"},
+                { "color": "#82AAFF"},
+            ]
+        },
+        // +: matches plus bullets with headers ending in : or .
+        "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:\\S+\\s+){0,4}\\S+?[.:])": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+            { "color": "#80A4C2" },
+            { "color": "#6B8AB8" }
+            ]
+        },
+        // *: matches hierarchies and first expressions.
+        "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s]*)": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                { "color": "#7fdbca" },
+                { "color": "#7fdbca" }
+            ]
+        },
+        // LINKS AND PATHS (Light Blue)
+        // Matches http, www, file paths like C:\ or /user/bin
+        "(https?:\\/\\/[^\\s]+|www\\.[^\\s]+|[a-zA-Z]:\\\\[\\w\\\\\\-\\. ]+|(?:\\\\|\\/)(?:[\\w\\-\\. ]+(?:\\\\|\\/))+[\\w\\-\\. ]+)": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [{ "color": "#7274FF" }]
+        },
+    },
+    "[markdown]": {
+        "editor.fontSize": 15,
+        "editor.fontFamily": "Roboto",
+        "editor.lineNumbers": "off",
+        "editor.lineHeight": 1.2,
+        "editor.padding.bottom": 50,
+        "editor.padding.top": 10,
+    },
+    "[plaintext]": {
+        "editor.fontSize": 15,
+        "editor.fontFamily": "Roboto",
+        "editor.lineNumbers": "off",
+        "editor.lineHeight": 1.2,
+        "editor.padding.bottom": 50,
+        "editor.padding.top": 10,
+    },
+    "editor.tokenColorCustomizations": { //markdown colors
+        "[Night Owl (No Italics)]": {
+            "textMateRules": [
+                {
+                    "scope": "heading.1.markdown",
+                    "settings": {
+                        "foreground": "#FF5370"
+                    }
+                },
+                {
+                    "scope": "heading.2.markdown",
+                    "settings": {
+                        "foreground": "#FFCB8B"
+                    }
+                },
+                {
+                    "scope": "heading.3.markdown",
+                    "settings": {
+                        "foreground": "#FF869A"
+                    }
+                },
+                {
+                    "scope": "heading.4.markdown",
+                    "settings": {
+                        "foreground": "#F9E2AF"
+                    }
+                }
+            ]
+        }
+    },
+    "workbench.colorCustomizations": { // editor top settings
+        "editor.foreground": "#bebebe",
+        "[Default Dark Modern]": {
+            "tab.activeBorderTop": "#00FF00",
+            "tab.unfocusedActiveBorderTop": "#00FF0088",
+            "textCodeBlock.background": "#00000055"
+        },
+        "editor.wordHighlightStrongBorder": "#FF6347",
+        "editor.wordHighlightBorder": "#FFD700",
+        "editor.selectionHighlightBorder": "#A9A9A9"
+    },
+    // #endregion MD & TXT
+    
+    //! Ui
+    // #region Ui
+    "workbench.view.showQuietly": {
+        "workbench.panel.output": true
+    },
+    "workbench.colorTheme": "Night Owl (No Italics)",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.tree.indent": 20,
+    "zenMode.showTabs": "none",
+    "zenMode.centerLayout": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "chat.commandCenter.enabled": false,
+    "diffEditor.diffAlgorithm": "advanced",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    // #endregion Ui
+
+    //! Editor
+    // #region Editor
+    "editor.fontSize": 15,
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.linkedEditing": true,
+    "editor.codeLens": false,
+    "editor.unicodeHighlight.includeComments": true,
+    "editor.rulers": [
+        { "column": 80, "color": "#00FF0010" },
+        { "column": 100, "color": "#BDB76B15" },
+        { "column": 120, "color": "#FA807219" }
+    ],
+    // #endregion Editor
+
+    //! Terminal
+    // #region Terminal
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.external.windowsExec": "C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.automationProfile.windows": {
+        "path": "cmd"
+    },
+    "terminal.integrated.env.windows": {
+        "defaultProfile": "C:\\Users\\denec\\OneDrive\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+        "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21",
+        "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21\\bin;${env:PATH}"
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell 7": {
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "icon": "terminal-powershell"
+        },
+        "JavaSE-1.8 LTS": {
+            "overrideName": true,
+            "env": {
+                "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8\\bin;${env:PATH}",
+                "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8"
+            },
+            "path": "cmd"
+        },
+        "JavaSE-11 LTS": {
+            "overrideName": true,
+            "env": {
+                "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11\\bin;${env:PATH}",
+                "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11"
+            },
+            "path": "cmd"
+        },
+        "JavaSE-17 LTS": {
+            "overrideName": true,
+            "env": {
+                "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17\\bin;${env:PATH}",
+                "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17"
+            },
+            "path": "cmd"
+        },
+        "JavaSE-21 LTS": {
+            "overrideName": true,
+            "env": {
+                "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21\\bin;${env:PATH}",
+                "JAVA_TOOL_OPTIONS": "-Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8",
+                "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
+            },
+            "path": "cmd",
+            "args": [ "/k", "chcp", "65001" ]
+        }
+    },
+    // #endregion terminal
+
+    //! Language & File Settings
+    // #region LanguageAndFileSettings
+    "files.eol": "\n",
+    "git.enableSmartCommit": true,
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "python.analysis.inlayHints.pytestParameters": true,
+    "powershell.startAsLoginShell.osx": false,
+    "powershell.startAutomatically": false,
+    "[bat]": { "files.eol": "\r\n" },
+    "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
+    "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+    "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    // #endregion LanguageAndFileSettings
+
+    //! Security
+    // #region Security
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.allowedUNCHosts": [ "localhost" ],
+    // #endregion Security
+
+    //! Extensions
+    // #region Extensions
+    "gitlens.hovers.currentLine": false,
+
+    "eslint.lintTask.enable": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "dev.containers.executeInWSL": true,
+    "remote.autoForwardPortsSource": "hybrid",
+    "amazonQ.telemetry": false,
+    "cSpell.diagnosticLevel": "Hint",
+    "svelte.enable-ts-plugin": true,
+    "emmet.variables": { "lang": "de" },
+    "auto-close-tag.excludedTags": [ "HTMLElement" ],
+    "fileutils.moveFile.typeahead.enabled": true,
+    "trailing-spaces.backgroundColor": "rgba(255,0,0,0.1)",
+    "trailing-spaces.includeEmptyLines": false,
+    "github.copilot.enable": { "*": false },
+    "github.copilot.advanced": {},
+    "code-runner.runInTerminal": false,
+    "code-runner.preserveFocus": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.executorMap": { "typescript": "npx tsx" },
+    "code-runner.executorMapByGlob": {
+        "**/*.test.ts": "npx vitest",
+        "**/*.spec.ts": "npx playwright test"
+    },
+    "roo-cline.allowedCommands": [ "npm test", "npm install", "tsc", "git log", "git diff", "git show" ],
+    "roo-cline.deniedCommands": [],
+    "better-comments.tags": [
+        { "tag": "!", "color": "#FF2D00", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+        { "tag": "?", "color": "#3498DB", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+        { "tag": "//", "color": "#474747", "strikethrough": true, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+        { "tag": "todo", "color": "#FF8C00", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+        { "tag": "*", "color": "#98C379", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false },
+        { "tag": "compl", "color": "#4cad00", "strikethrough": false, "underline": false, "backgroundColor": "transparent", "bold": false, "italic": false }
+    ],
+    // #endregion Extensions
+
+    //! Java
+    // #region Java
+    "java.maxConcurrentBuilds": 16,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.detectJdksAtStart": false,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.sources.organizeImports.staticStarThreshold": 1,
+    "java.import.gradle.home": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\gradle\\latest",
+    "java.import.gradle.java.home": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21",
+    "java.test.config": {
+        "vmArgs": [ "-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8" ]
+    },
+    "java.configuration.runtimes": [
+        { "name": "JavaSE-1.8", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8" },
+        { "name": "JavaSE-11", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11" },
+        { "name": "JavaSE-17", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17" },
+        { "name": "JavaSE-21", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21" }
+    ],
+    "maven.executable.path": "C:\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn",
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "JAVA_HOME",
+            "value": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
+        }
+    ],
+    "[java]": { "editor.defaultFormatter": "redhat.java" },
+    // #endregion Java
+
+    //! C++
+    // #region C++
+    "cmake.showOptionsMovedNotification": false,
+    "cmakeFormat.env": {},
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "lldb.suppressUpdateNotifications": true,
+    "diffEditor.experimental.showMoves": true,
+    "files.autoSave": "onWindowChange",
+    "dateTime.use24HourClock": false,
+    "dateTime.showSeconds": true,
+    "cursor.cpp.disabledLanguages": [
+        "plaintext"
+    ],
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.showTabs": "none",
+    "breadcrumbs.enabled": false,
+    "dynoFileUtils.confirmDelete": false,
+    "git.confirmSync": false,
+    // #endregion Cpp
+}
