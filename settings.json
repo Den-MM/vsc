@@ -5,28 +5,28 @@
     // #region MD & TXT
     "highlight.regexes": { // regex formatting like -, +, *
         // KEYWORDS (Purple): matches exact keywords or 'e:'
-        "\\b(core prompt|core task|example|examples|ie|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
+        "(?<!\\*\\s)\\b(core prompt|core task|example|examples|ie|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [{ "color": "#C792EA"}]
         },
         // -: matches dash bullets with headers ending in : or .
-        "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:\\S+\\s+){0,4}\\S+?[.:])": {
+        "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+\\s+){0,4}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
                 { "color": "#82AAFF", "fontWeight": "bold"},
-                { "color": "#82AAFF"},
+                { "color": "#82AAFF"}
             ]
         },
         // +: matches plus bullets with headers ending in : or .
-        "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:\\S+\\s+){0,4}\\S+?[.:])": {
+        "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+\\s+){0,4}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
-            { "color": "#80A4C2" },
+            { "color": "#6B8AB8" },
             { "color": "#6B8AB8" }
             ]
         },
-        // *: matches hierarchies and first expressions.
-        "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s]*)": {
+        // *: special bullet. matches hierarchies and first expressions.
+        "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s.:]*)": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
                 { "color": "#7fdbca" },
