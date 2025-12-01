@@ -5,12 +5,12 @@
     // #region MD & TXT
     "highlight.regexes": { // regex formatting like -, +, *
         // KEYWORDS (Purple): matches exact keywords or 'e:'
-        "(?<!\\*\\s)\\b(core prompt|core task|example|examples|ie|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
+        "(?<!\\*\\s)\\b(core prompt|core task|example|examples|ie|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [{ "color": "#C792EA"}]
         },
         // -: matches dash bullets with headers ending in : or .
-        "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+\\s+){0,4}[^\\s.:]+)(?=[.:])": {
+        "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
                 { "color": "#82AAFF", "fontWeight": "bold"},
@@ -18,7 +18,7 @@
             ]
         },
         // +: matches plus bullets with headers ending in : or .
-        "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|types|steps|step|explanation|praxis|terminology|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+\\s+){0,4}[^\\s.:]+)(?=[.:])": {
+        "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
             { "color": "#6B8AB8" },
@@ -47,6 +47,9 @@
         "editor.lineHeight": 1.2,
         "editor.padding.bottom": 50,
         "editor.padding.top": 10,
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.rulers": [],
+        "editor.wordWrapColumn": 230
     },
     "[plaintext]": {
         "editor.fontSize": 15,
@@ -55,6 +58,9 @@
         "editor.lineHeight": 1.2,
         "editor.padding.bottom": 50,
         "editor.padding.top": 10,
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.rulers": [],
+        "editor.wordWrapColumn": 230
     },
     "editor.tokenColorCustomizations": { //markdown colors
         "[Night Owl (No Italics)]": {
