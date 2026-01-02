@@ -901,5 +901,45 @@
   {
     "key": "ctrl+m w",
     "command": "-workbench.action.closeEditorsInGroup"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "windsurf.prioritized.chat.open",
+    "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.prioritized.chat.open",
+    "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "windsurf.sendTerminalToChat",
+    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.sendTerminalToChat",
+    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "windsurf.prioritized.chat.openNewConversation",
+    "when": "windsurf.cascadePanel.focused"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-windsurf.prioritized.chat.openNewConversation",
+    "when": "windsurf.cascadePanel.focused"
   }
 ]

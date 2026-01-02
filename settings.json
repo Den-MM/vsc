@@ -1,15 +1,14 @@
 {
     "window.title": "${dirty}${activeEditorMedium}",
-
     //! MD & TXT
     // #region MD & TXT
     "highlight.regexes": { // regex formatting like -, +, *
-        // KEYWORDS (Purple): matches exact keywords or 'e:'
-        "(?<!\\*\\s)\\b(core prompt|core task|example|examples|ie|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b:?|\\be:": {
+        // keywords
+        "(?<!\\*\\s)\\b(core prompt|core task|examples?|ie|roles?|BP|concepts?|structures?|scopes?|types?|steps?|explanations?|expl|tasks?|praxis|formats?|terms?|math|formulas?|restrictions?|UC|pro/con|cons?|pros?|advantages?|disadvantages?|problems?|obstacles?|bottlenecks?|benefits?|drawbacks?|limitations?|challenges?|issues?|solutions?)\\b:?|\\be:": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [{ "color": "#C792EA"}]
         },
-        // -: matches dash bullets with headers ending in : or .
+        // -
         "((?:^|\\n)\\s*-+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
@@ -17,7 +16,7 @@
                 { "color": "#82AAFF"}
             ]
         },
-        // +: matches plus bullets with headers ending in : or .
+        // +
         "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
@@ -25,7 +24,7 @@
             { "color": "#6B8AB8" }
             ]
         },
-        // *: special bullet. matches hierarchies and first expressions.
+        // *
         "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s.:]*)": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
@@ -33,23 +32,37 @@
                 { "color": "#7fdbca" }
             ]
         },
-        // LINKS AND PATHS (Light Blue)
-        // Matches http, www, file paths like C:\ or /user/bin
+        //! links & paths
         "(https?:\\/\\/[^\\s]+|www\\.[^\\s]+|[a-zA-Z]:\\\\[\\w\\\\\\-\\. ]+|(?:\\\\|\\/)(?:[\\w\\-\\. ]+(?:\\\\|\\/))+[\\w\\-\\. ]+)": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [{ "color": "#7274FF" }]
         },
+        // comments
+        "(^|\\s)(\\/\\/[^\\n]*)": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                {},
+                { "color": "#8E959E" }
+            ]
+        },
+        // block comments
+        "(\\/\\*.*?\\*\\/)": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                { "color": "#8E959E" }
+            ]
+        }
     },
     "[markdown]": {
         "editor.fontSize": 15,
         "editor.fontFamily": "Roboto",
-        "editor.lineNumbers": "off",
+        "editor.lineNumbers": "on",
         "editor.lineHeight": 1.2,
         "editor.padding.bottom": 50,
         "editor.padding.top": 10,
-        "editor.wordWrap": "wordWrapColumn",
-        "editor.rulers": [],
-        "editor.wordWrapColumn": 230
+        "editor.wordWrap": "on",
+        "editor.rulers": []
+        // "editor.wordWrapColumn": 230
     },
     "[plaintext]": {
         "editor.fontSize": 15,
@@ -74,7 +87,7 @@
                 {
                     "scope": "heading.2.markdown",
                     "settings": {
-                        "foreground": "#FFCB8B"
+                        "foreground": "#FFA347"
                     }
                 },
                 {
@@ -93,7 +106,7 @@
         }
     },
     "workbench.colorCustomizations": { // editor top settings
-        "editor.foreground": "#bebebe",
+        "editor.foreground": "#c2c2c2",
         "[Default Dark Modern]": {
             "tab.activeBorderTop": "#00FF00",
             "tab.unfocusedActiveBorderTop": "#00FF0088",
@@ -105,6 +118,12 @@
     },
     // #endregion MD & TXT
     
+    //! Ai
+    // #region Windsurf AI
+    // "editor.acceptSuggestionOnCommitCharacter": true,
+    // "editor.suggest.preview": false,
+    // #endregion Windsurf AI
+
     //! Ui
     // #region Ui
     "workbench.view.showQuietly": {
@@ -125,6 +144,7 @@
 
     //! Editor
     // #region Editor
+    "editor.accessibilitySupport": "off",
     "editor.fontSize": 15,
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
@@ -190,7 +210,25 @@
                 "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
             },
             "path": "cmd",
-            "args": [ "/k", "chcp", "65001" ]
+            "args": [
+                "/k",
+                "chcp",
+                "65001"
+            ]
+        },
+        "JavaSE-25 LTS": {
+            "overrideName": true,
+            "env": {
+                "PATH": "C:\\Users\\denec\\AppData\\Roaming\\Windsurf\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\latest\\bin;${env:PATH}",
+                "JAVA_TOOL_OPTIONS": "-Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8",
+                "JAVA_HOME": "C:\\Users\\denec\\AppData\\Roaming\\Windsurf\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\latest"
+            },
+            "path": "cmd",
+            "args": [
+                "/k",
+                "chcp",
+                "65001"
+            ]
         }
     },
     // #endregion terminal
@@ -271,12 +309,29 @@
         "vmArgs": [ "-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8" ]
     },
     "java.configuration.runtimes": [
-        { "name": "JavaSE-1.8", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8" },
-        { "name": "JavaSE-11", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11" },
-        { "name": "JavaSE-17", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17" },
-        { "name": "JavaSE-21", "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21" }
+        {
+            "name": "JavaSE-1.8",
+            "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\8"
+        },
+        {
+            "name": "JavaSE-11",
+            "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\11"
+        },
+        {
+            "name": "JavaSE-17",
+            "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\17"
+        },
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\Users\\denec\\AppData\\Roaming\\Code\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\21"
+        },
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Users\\denec\\AppData\\Roaming\\Windsurf\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\java\\latest",
+            "default": true
+        }
     ],
-    "maven.executable.path": "C:\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn",
+    "maven.executable.path": "C:\\Users\\denec\\AppData\\Roaming\\Windsurf\\User\\globalStorage\\pleiades.java-extension-pack-jdk\\maven\\latest\\bin\\mvn",
     "maven.terminal.customEnv": [
         {
             "environmentVariable": "JAVA_HOME",
@@ -304,8 +359,13 @@
     ],
     "workbench.layoutControl.enabled": false,
     "workbench.editor.showTabs": "none",
-    "breadcrumbs.enabled": false,
     "dynoFileUtils.confirmDelete": false,
     "git.confirmSync": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.minimap.enabled": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     // #endregion Cpp
+
 }
