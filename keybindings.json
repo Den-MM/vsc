@@ -1,12 +1,19 @@
 // Place your key bindings in this file to override the defaults
 [
 
+  
+  // cursor
+  {
+    "key": "ctrl+shift+i",
+    "command": "aipopup.action.modal.generate"
+  },
+  
+  // windsurf
   // {
   //   "key": "ctrl+u",
   //   "command": "windsurf.prioritized.chat.open",
   //   "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
   // },
-
   
   {
     "key": "ctrl+alt+1",
