@@ -123,6 +123,8 @@
     // "editor.acceptSuggestionOnCommitCharacter": true,
     // "editor.suggest.preview": false,
     // #endregion Windsurf AI
+    "cursor.cpp.enablePartialAccepts": true,
+
 
     //! Ui
     // #region Ui
@@ -366,6 +368,9 @@
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "deepwiki.resolveAllWords": false,
+    "deno.enable": false,
+    "cursor.composer.usageSummaryDisplay": "always",
     // #endregion Cpp
 
 }

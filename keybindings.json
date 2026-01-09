@@ -1,6 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
 
+  // {
+  //   "key": "ctrl+u",
+  //   "command": "windsurf.prioritized.chat.open",
+  //   "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
+  // },
+
   
   {
     "key": "ctrl+alt+1",
@@ -264,28 +270,6 @@
     "when": "workbench.panel.output.active"
   },
   {
-    "key": "ctrl+shift+u",
-    "command": "favorites.deleteFavorite"
-  },
-  {
-    "key": "ctrl+shift+u",
-    "command": "gitlens.views.unstar"
-  },
-  {
-    "key": "ctrl+shift+u",
-    "command": "gitlens.views.unstar.multi"
-  },
-  {
-    "key": "ctrl+u",
-    "command": "gitlens.views.star",
-    "when": "viewContainer.workbench.view.explorer.enabled"
-  },
-  {
-    "key": "ctrl+u",
-    "command": "gitlens.views.star.multi",
-    "when": "viewContainer.workbench.view.explorer.enabled"
-  },
-  {
     "key": "ctrl+alt+enter",
     "command": "-workbench.action.chat.runInTerminal",
     "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat"
@@ -304,10 +288,6 @@
     "key": "ctrl+`",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
-  },
-  {
-    "key": "ctrl+u",
-    "command": "terminal.focus"
   },
   {
     "key": "ctrl+q",
@@ -470,10 +450,6 @@
   {
     "key": "ctrl+shift+y",
     "command": "-aichat.newfollowupaction"
-  },
-  {
-    "key": "ctrl+u",
-    "command": "aichat.newchataction"
   },
   {
     "key": "ctrl+l",
@@ -903,11 +879,6 @@
     "command": "-workbench.action.closeEditorsInGroup"
   },
   {
-    "key": "ctrl+u",
-    "command": "windsurf.prioritized.chat.open",
-    "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
-  },
-  {
     "key": "ctrl+l",
     "command": "-windsurf.prioritized.chat.open",
     "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
@@ -941,5 +912,49 @@
     "key": "ctrl+n",
     "command": "-windsurf.prioritized.chat.openNewConversation",
     "when": "windsurf.cascadePanel.focused"
+  },
+  {
+    "key": "shift+delete",
+    "command": "dynoFileUtils.deleteFile"
+  },
+  {
+    "key": "alt+delete",
+    "command": "-dynoFileUtils.deleteFile"
+  },
+  {
+    "key": "delete",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "key": "shift+delete",
+    "command": "-deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
+    "key": "delete",
+    "command": "-deleteFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceMoveableToTrash && !inputFocus"
+  },
+  {
+    "key": "ctrl+shift+delete",
+    "command": "dynoFileUtils.deleteFolder"
+  },
+  {
+    "key": "shift+alt+delete",
+    "command": "-dynoFileUtils.deleteFolder"
+  },
+  {
+    "key": "alt+delete",
+    "command": "dynoFileUtils.deleteMutipleItems"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-inlineChat.holdForSpeech",
+    "when": "hasSpeechProvider && inlineChatVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+t",
+    "command": "editor.cpp.toggle"
   }
 ]
