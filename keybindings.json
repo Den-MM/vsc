@@ -2,18 +2,90 @@
 [
 
   
-  // cursor
+  // ============================================================================
+  // CURSOR SETTINGS
+  // ============================================================================
+  
+  // Quick Chat (inline AI prompt)
   {
     "key": "ctrl+shift+i",
     "command": "aipopup.action.modal.generate"
   },
   
-  // windsurf
+  // Open Composer (main AI chat)
+  {
+    "key": "ctrl+u",
+    "command": "composer.startComposerPrompt"
+  },
+  
+  // Create new composer with previous context
+  {
+    "key": "ctrl+shift+u",
+    "command": "composer.createNewWithPrevContext",
+    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  },
+  
+  // Toggle Agent Window IDE Unification
+  {
+    "key": "ctrl+i",
+    "command": "cursor.toggleAgentWindowIDEUnification",
+    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
+  },
+  
+  // Open Agent Changes Editor
+  {
+    "key": "ctrl+shift+alt+r",
+    "command": "cursor.openAgentChangesEditor",
+    "when": "composerFocused"
+  },
+  
+  // Navigate between composer tabs
+  {
+    "key": "ctrl+tab",
+    "command": "composer.selectNextComposer",
+    "when": "agentsPaneFocused && cursor.agentIdeUnification.enabled || composerFocused && cursor.agentIdeUnification.enabled"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "composer.selectPreviousComposer",
+    "when": "agentsPaneFocused && cursor.agentIdeUnification.enabled || composerFocused && cursor.agentIdeUnification.enabled"
+  },
+  
+  // Editor layout for agent mode
+  {
+    "key": "ctrl+shift+;",
+    "command": "workbench.action.editorLayout",
+    "when": "!isInBackgroundComposerWindow && cursor.appLayout == 'agent'"
+  },
+
+  // ============================================================================
+  // WINDSURF SETTINGS
+  // ============================================================================
+  
+  // Send terminal to chat
+  {
+    "key": "ctrl+u",
+    "command": "windsurf.sendTerminalToChat",
+    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  
+  // Open new conversation
+  {
+    "key": "ctrl+shift+u",
+    "command": "windsurf.prioritized.chat.openNewConversation",
+    "when": "windsurf.cascadePanel.focused"
+  },
+  
+  // Commented out - alternative windsurf chat open
   // {
   //   "key": "ctrl+u",
   //   "command": "windsurf.prioritized.chat.open",
   //   "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
   // },
+
+  // ============================================================================
+  // CUSTOM FILE SHORTCUTS
+  // ============================================================================
   
   {
     "key": "ctrl+alt+1",
@@ -360,11 +432,6 @@
     "when": "cursor.appLayout != 'agent'"
   },
   {
-    "key": "ctrl+shift+u",
-    "command": "composer.createNewWithPrevContext",
-    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
-  },
-  {
     "key": "ctrl+n",
     "command": "-composer.createNewWithPrevContext",
     "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
@@ -373,11 +440,6 @@
     "key": "ctrl+p",
     "command": "-expandLineSelection",
     "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+;",
-    "command": "workbench.action.editorLayout",
-    "when": "!isInBackgroundComposerWindow && cursor.appLayout == 'agent'"
   },
   {
     "key": "ctrl+shift+.",
@@ -588,10 +650,6 @@
     "when": "agentsPaneFocused || composerFocused || cursor.agentIdeUnification.enabled || activeEditor == 'workbench.editor.composer' || focusedView =~ /^workbench.panel.aichat.view/"
   },
   {
-    "key": "ctrl+u",
-    "command": "composer.startComposerPrompt"
-  },
-  {
     "key": "ctrl+i",
     "command": "-composer.startComposerPrompt"
   },
@@ -604,11 +662,6 @@
     "key": "ctrl+shift+alt+p ctrl+shift+alt+l",
     "command": "inlineChat2.stop",
     "when": "inlineChatHasEditsAgent && inlineChatVisible && chatEdits.requestCount == '0'"
-  },
-  {
-    "key": "ctrl+i",
-    "command": "cursor.toggleAgentWindowIDEUnification",
-    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
   },
   {
     "key": "ctrl+e",
@@ -688,11 +741,6 @@
     "when": "inSearchEditor"
   },
   {
-    "key": "ctrl+shift+alt+r",
-    "command": "cursor.openAgentChangesEditor",
-    "when": "composerFocused"
-  },
-  {
     "key": "ctrl+shift+r",
     "command": "-cursor.openAgentChangesEditor",
     "when": "composerFocused"
@@ -747,10 +795,6 @@
     "when": "terminalFocus"
   },
   {
-    "key": "delete",
-
-  },
-  {
     "key": "ctrl+w",
     "command": "-workbench.action.terminal.killEditor",
     "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
@@ -779,18 +823,8 @@
     "command": "workbench.view.extension.test"
   },
   {
-    "key": "ctrl+tab",
-    "command": "composer.selectNextComposer",
-    "when": "agentsPaneFocused && cursor.agentIdeUnification.enabled || composerFocused && cursor.agentIdeUnification.enabled"
-  },
-  {
     "key": "win+tab",
     "command": "-composer.selectNextComposer",
-    "when": "agentsPaneFocused && cursor.agentIdeUnification.enabled || composerFocused && cursor.agentIdeUnification.enabled"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "composer.selectPreviousComposer",
     "when": "agentsPaneFocused && cursor.agentIdeUnification.enabled || composerFocused && cursor.agentIdeUnification.enabled"
   },
   {
@@ -891,11 +925,6 @@
     "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
   },
   {
-    "key": "ctrl+u",
-    "command": "windsurf.sendTerminalToChat",
-    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
-  },
-  {
     "key": "ctrl+l",
     "command": "-windsurf.sendTerminalToChat",
     "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
@@ -909,11 +938,6 @@
     "key": "ctrl+n",
     "command": "-workbench.action.chat.newChat",
     "when": "chatIsEnabled && inChat"
-  },
-  {
-    "key": "ctrl+shift+u",
-    "command": "windsurf.prioritized.chat.openNewConversation",
-    "when": "windsurf.cascadePanel.focused"
   },
   {
     "key": "ctrl+n",

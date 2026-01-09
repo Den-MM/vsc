@@ -123,7 +123,10 @@
     // "editor.acceptSuggestionOnCommitCharacter": true,
     // "editor.suggest.preview": false,
     // #endregion Windsurf AI
-    "cursor.cpp.enablePartialAccepts": true,
+    // #region Cursor
+    "cursor.composer.usageSummaryDisplay": "always",
+    
+    // #endregion Cursor
 
 
     //! Ui
@@ -370,7 +373,6 @@
     },
     "deepwiki.resolveAllWords": false,
     "deno.enable": false,
-    "cursor.composer.usageSummaryDisplay": "always",
     // #endregion Cpp
 
 }
