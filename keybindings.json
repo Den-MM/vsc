@@ -8,8 +8,15 @@
   
   // Quick Chat (inline AI prompt)
   {
-    "key": "ctrl+shift+i",
+    "key": "ctrl+i",
     "command": "aipopup.action.modal.generate"
+  },
+  
+  // Toggle Agent Mode
+  {
+    "key": "ctrl+shift+i",
+    "command": "cursor.toggleAgentWindowIDEUnification",
+    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
   },
   
   // Open Composer (main AI chat)
@@ -26,13 +33,6 @@
   },
   
   // Toggle Agent Window IDE Unification
-  {
-    "key": "ctrl+i",
-    "command": "cursor.toggleAgentWindowIDEUnification",
-    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
-  },
-  
-  // Open Agent Changes Editor
   {
     "key": "ctrl+shift+alt+r",
     "command": "cursor.openAgentChangesEditor",
@@ -219,10 +219,6 @@
   {
     "key": "ctrl+shift+l",
     "command": "-continue.focusContinueInputWithoutClear"
-  },
-  {
-    "key": "ctrl+shift+alt+n",
-    "command": "workbench.action.newWindow"
   },
   {
     "key": "ctrl+shift+n",
@@ -987,5 +983,14 @@
   {
     "key": "ctrl+shift+alt+t",
     "command": "editor.cpp.toggle"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "-editor.action.inlineSuggest.acceptNextWord",
+    "when": "cppSuggestion && !editorReadonly || inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+alt+n",
+    "command": "workbench.action.files.showOpenedFileInNewWindow"
   }
 ]

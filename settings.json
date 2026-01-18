@@ -51,6 +51,16 @@
             "decorations": [
                 { "color": "#8E959E" }
             ]
+        },
+        // language tooltip spans
+        // any word within lightblue span tags
+        "(<span[^>]*lightblue[^>]*>)([^<]+)(<\\/span>)": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                {},
+                { "color": "#82AAFF" },
+                {}
+            ]
         }
     },
     "[markdown]": {
@@ -61,7 +71,8 @@
         "editor.padding.bottom": 50,
         "editor.padding.top": 10,
         "editor.wordWrap": "on",
-        "editor.rulers": []
+        "editor.rulers": [],
+        "editor.tabSize": 4,
         // "editor.wordWrapColumn": 230
     },
     "[plaintext]": {
@@ -73,7 +84,10 @@
         "editor.padding.top": 10,
         "editor.wordWrap": "wordWrapColumn",
         "editor.rulers": [],
-        "editor.wordWrapColumn": 230
+        "editor.tabSize": 4,
+    },
+    "[jsonl]": {
+        "editor.tabSize": 2
     },
     "editor.tokenColorCustomizations": { //markdown colors
         "[Night Owl (No Italics)]": {
