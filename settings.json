@@ -1,5 +1,18 @@
 {
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        "**/node_modules/**": true,
+        "**Wt**": true,
+    },
+    "files.exclude": {
+        "**/node_modules/**": true,
+        "**Wt**": true,
+    },
+    // "js/ts.hover.maximumLength": 10000,
+
+
     "window.title": "${dirty}${activeEditorMedium}",
+
     //! MD & TXT
     // #region MD & TXT
     "highlight.regexes": { // regex formatting like -, +, *
@@ -16,6 +29,14 @@
                 { "color": "#82AAFF"}
             ]
         },
+        // 1. / 2. / 3. (numbered list), d+: regex for one or more digits
+        "((?:^|\\n)\\s*\\d+\\.\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
+            "filterFileRegex": ".*\\.(txt|md)$",
+            "decorations": [
+                { "color": "#82AAFF", "fontWeight": "bold"},
+                { "color": "#82AAFF"}
+            ]
+        },
         // +
         "((?:^|\\n)\\s*\\++\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
@@ -24,12 +45,20 @@
             { "color": "#6B8AB8" }
             ]
         },
-        // *
-        "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s.:]*)": {
+        // // * depreciated: used for hierarchies.
+        // "((?:^|\\n)\\s*\\*+\\s+)([A-Za-z_$\\[][^\\s.:]*)": {
+        //     "filterFileRegex": ".*\\.(txt|md)$",
+        //     "decorations": [
+        //         { "color": "#7fdbca" },
+        //         { "color": "#7fdbca" }
+        //     ]
+        // },
+        // *- (star-dashed list) - placed after `*` so it wins
+        "((?:^|\\n)\\s*\\*+\\s+)(?!(?:core prompt|core task|example|role|BP|concept|scope|types|steps|step|explanation|praxis|format|terms|term|math|formula|restrictions|UC|pro/con|con)\\b)((?:[^\\s.:]+[ \\t]+){0,6}[^\\s.:]+)(?=[.:])": {
             "filterFileRegex": ".*\\.(txt|md)$",
             "decorations": [
-                { "color": "#7fdbca" },
-                { "color": "#7fdbca" }
+                { "color": "#82AAFF", "fontWeight": "bold"},
+                { "color": "#82AAFF"}
             ]
         },
         //! links & paths
@@ -71,7 +100,7 @@
         "editor.padding.bottom": 50,
         "editor.padding.top": 10,
         "editor.wordWrap": "on",
-        "editor.rulers": [],
+        // "editor.rulers": [],
         "editor.tabSize": 4,
         // "editor.wordWrapColumn": 230
     },
@@ -276,6 +305,13 @@
 
     //! Extensions
     // #region Extensions
+    "workbench.editorAssociations": {
+        "*.xlsx": "default",
+        "*.docx": "default",
+        "*.md": "default",
+    },
+    "zoterocitationpicker.zoteroDataDir": "C:/Users/denec/Zotero",
+
     "gitlens.hovers.currentLine": false,
 
     "eslint.lintTask.enable": true,
@@ -387,6 +423,12 @@
     },
     "deepwiki.resolveAllWords": false,
     "deno.enable": false,
+    "vscode-office.editorTheme": "Github Dark",
+    "vscode-office.preventMacOptionKey": false,
+    "vscode-office.previewCodeHighlight.showLineNumber": false,
+    "vscode-office.openOutline": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.stickyScroll.enabled": true,
     // #endregion Cpp
 
 }
